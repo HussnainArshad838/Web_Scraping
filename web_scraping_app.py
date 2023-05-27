@@ -1,5 +1,3 @@
-!pip install requests
-!pip install beautifulsoup4
 import streamlit as st
 # Web scraping function
 def scrape_data(url):
