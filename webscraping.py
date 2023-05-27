@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import streamlit as st
 
 # Web scraping function
 def scrape_data(url):
@@ -16,19 +15,20 @@ def scrape_data(url):
     # Return the scraped data
     return scraped_data
 
-# Streamlit app code
+# Main function
 def main():
-    st.title("Web Scraping App")
-    st.write("Enter the URL to scrape:")
-    url = st.text_input("URL")
+    # Read the URL from an input file
+    with open("input.txt", "r") as file:
+        url = file.read().strip()
 
-    if st.button("Scrape"):
-        if url:
-            scraped_data = scrape_data(url)
-            st.write("Scraped data:")
-            st.write(scraped_data)
-        else:
-            st.write("Please enter a URL to scrape.")
+    # Call the web scraping function
+    scraped_data = scrape_data(url)
+
+    # Process or display the scraped data
+    # TODO: Add your data processing or display logic here
+
+    # Example: Print the scraped data
+    print(scraped_data)
 
 if __name__ == '__main__':
     main()
