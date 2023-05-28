@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 import webbrowser
 
 st.markdown("<h1 style='text-align:center;'>Web Scraping</h1>", unsafe_allow_html=True)
