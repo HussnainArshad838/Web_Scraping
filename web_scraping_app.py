@@ -1,29 +1,14 @@
 import streamlit as st
-import requests
-from bs4 import BeautifulSoup
+st.markdown("<h1 style='text-align:center;'>Web Scraping </h1>",unsafe_allow_html=True)
+with st.form("Search");
+keyword=st.text_input("Enter Your Keyword")
+st.form_submit_button("Search")
 
-# Web scraping function
-def scrape_data(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, "html.parser")
 
-    # TODO: Add your scraping logic here
 
-    return scraped_data
 
-# Streamlit app code
-def main():
-    st.title("Web Scraping App")
-    st.write("Enter the URL to scrape:")
-    url = st.text_input("URL")
 
-    if st.button("Scrape"):
-        if url:
-            scraped_data = scrape_data(url)
-            st.write("Scraped data:")
-            st.write(scraped_data)
-        else:
-            st.write("Please enter a URL to scrape.")
 
-if __name__ == '__main__':
-    main()
+
+
+
