@@ -11,7 +11,7 @@ with st.form("Search"):
     if search:
         page = requests.get(f"https://unsplash.com/s/photos/{keyword}")
         soup = BeautifulSoup(page.content, 'html.parser')  # Changed parser to 'html.parser'
-        rows = soup.find_all("div", class_="_2VWD4 _2zEKz")  # Updated the class name
+        rows = soup.find_all("div", class_="ripi6")  # Updated the class name
 
         for row in rows:
             # Perform further processing on each row as needed
