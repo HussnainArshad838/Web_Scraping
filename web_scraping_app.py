@@ -9,13 +9,23 @@ with st.form("Search"):
     search = st.form_submit_button("Search")
 
     if search:
+        col1, col2 = st.columns(2)
         page = requests.get(f"https://unsplash.com/s/photos/{keyword}")
         soup = BeautifulSoup(page.content, 'html.parser')  # Changed parser to 'html.parser'
         rows = soup.find_all("div", class_="ripi6")  # Updated the class name
 
         for row in rows:
-            # Perform further processing on each row as needed
-            pass
+            figures = row.find_all("figure")
+            for i in range(2):
+                img = figures[i].find("img", class_="YVj9w")
+                image_list = img["srcset"].split("?")
+                if i == 0:
+                    col1.image(image_list[0])
+                else:
+                    col2.image(image_list[0])
+                st.image(image_list[0])
+                 
+
 
 #import streamlit as st
 #import requests
